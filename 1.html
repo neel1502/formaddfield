@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <h1>Mobile Info</h1>
+    <div class="form-data">
+        <form action="" id="myform" class="form-fields" onsubmit="return submitData()">
+            <label for="serial">Serial No.</label>
+            <input required type="text" id="serial"><br><br>
+            
+            <label for="modal">Modal No.</label>
+            <input required type="text" id="modal"><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <div id="toast">
+            <span id="closeToast" onclick="closeToast()">x</span>
+            Submitted successfully
+        </div>
+        <ul id="submittedData"></ul>
+    </div>
+
+    <script>
+        function submitData() {
+            var serialNo = document.querySelector('#serial').value;
+            var modalNo = document.querySelector('#modal').value;
+
+            console.log('Serial No.:', serialNo);
+            console.log('Modal No.:', modalNo);
+
+            showSuccessMessage();
+
+            return false;
+        }
+
+        function showSuccessMessage() {
+            var toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            addToSubmittedData();
+
+            setTimeout(function () {
+                toast.style.display = 'none';
+                document.getElementById('myform').reset();
+            }, 2000);
+        }
+
+        function addToSubmittedData() {
+            var submittedDataList = document.getElementById('submittedData');
+            var serialNo = document.querySelector('#serial').value;
+            var modalNo = document.querySelector('#modal').value;
+            var listItem = document.createElement('li');
+            listItem.textContent = 'Serial: ' + serialNo + ', Modal: ' + modalNo;
+            submittedDataList.appendChild(listItem);
+        }
+
+        function closeToast() {
+            var toast = document.getElementById('toast');
+            toast.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
