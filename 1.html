@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 <body>
     <h1>Mobile Info</h1>
     <div class="form-data">
-        <form action="" id="myform" class="form-fields" onsubmit="return submitData()">
+        <form action="#" id="myform" class="form-fields" onsubmit="return submitData()">
             <label for="serial">Serial No.</label>
             <input required type="text" id="serial"><br><br>
             
@@ -18,9 +18,9 @@
             
             <button type="submit">Submit</button>
         </form>
-        <div id="toast">
+        <div id="toast" style="display: none;">
             <span id="closeToast" onclick="closeToast()">x</span>
-            Submitted successfully
+            <span id="toastMessage"></span>
         </div>
         <ul id="submittedData"></ul>
     </div>
@@ -40,11 +40,15 @@
 
         function showSuccessMessage() {
             var toast = document.getElementById('toast');
+            var toastMessage = document.getElementById('toastMessage');
             toast.style.display = 'block';
+            toastMessage.textContent = 'Submitted successfully';
+
             addToSubmittedData();
 
             setTimeout(function () {
                 toast.style.display = 'none';
+                toastMessage.textContent = '';
                 document.getElementById('myform').reset();
             }, 2000);
         }
@@ -54,14 +58,45 @@
             var serialNo = document.querySelector('#serial').value;
             var modalNo = document.querySelector('#modal').value;
             var listItem = document.createElement('li');
+
+            var closeBtn = document.createElement('span');
+            closeBtn.textContent = 'x';
+            closeBtn.className = 'close-button';
+            closeBtn.onclick = function() {
+                submittedDataList.removeChild(listItem);
+                showDeleteMessage();
+            };
+
             listItem.textContent = 'Serial: ' + serialNo + ', Modal: ' + modalNo;
+            listItem.appendChild(closeBtn);
             submittedDataList.appendChild(listItem);
+        }
+
+        function showDeleteMessage() {
+            var toast = document.getElementById('toast');
+            var toastMessage = document.getElementById('toastMessage');
+            toast.style.display = 'block';
+            toastMessage.textContent = 'Data deleted successfully';
+
+            setTimeout(function () {
+                toast.style.display = 'none';
+                toastMessage.textContent = '';
+            }, 3000);
         }
 
         function closeToast() {
             var toast = document.getElementById('toast');
+            var toastMessage = document.getElementById('toastMessage');
             toast.style.display = 'none';
+            toastMessage.textContent = '';
         }
     </script>
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+ 

@@ -6,12 +6,11 @@ h1{
     padding-top: 25px;
 }
 .form-data{
-    background-color: blueviolet;
+    background-color:blueviolet;
     padding: 20px;
     width: 20%;
     margin: auto;
 }
-
 form{
     text-align: center;
 }
@@ -38,4 +37,30 @@ form{
     font-weight: bold;
     margin-left: 16px;
     font-size: 20px;
+}
+/* .close-button {
+    cursor: pointer;
+    color: #fff;
+    background-color: #d9534f;
+    padding: 5px 8px;
+    border-radius: 3px;
+    margin-left: 10px;
+} */
+.close-button {
+    cursor: pointer;
+    margin-left: 5px;
+    color: #fff;
+    background-color: #333;
+    padding: 3px 6px;
+    border-radius: 3px;
+}
+#submittedData li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
