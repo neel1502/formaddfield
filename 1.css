@@ -1,12 +1,14 @@
 body{
-    background-color:cadetblue;
+    background-color:rgb(21,70,70);
 }
 h1{
     text-align: center;
-    padding-top: 25px;
+    padding:25px;
+    background-color: black;
+    color: #fff;
 }
 .form-data{
-    background-color:blueviolet;
+    background-color:lightgrey;
     padding: 20px;
     width: 20%;
     margin: auto;
@@ -25,7 +27,8 @@ form{
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color:green;
+    background-color:rgb(21,70,70);
+    font-size: 24px;
     color: white;
     padding: 15px;
     border-radius: 5px;
@@ -38,14 +41,7 @@ form{
     margin-left: 16px;
     font-size: 20px;
 }
-/* .close-button {
-    cursor: pointer;
-    color: #fff;
-    background-color: #d9534f;
-    padding: 5px 8px;
-    border-radius: 3px;
-    margin-left: 10px;
-} */
+
 .close-button {
     cursor: pointer;
     margin-left: 5px;
